@@ -4,6 +4,7 @@ import isLogin from "../Middlewares/IsLogin.js";
 
 const grammarRouter = express.Router();
 
+
 grammarRouter.route("/check").post(isLogin, checkGrammar);
 
 export default grammarRouter;
