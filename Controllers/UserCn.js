@@ -16,7 +16,6 @@ export const getAllUsers = catchAsync(async (req, res, next) => {
 export const getOneUser = catchAsync(async (req, res, next) => {
     const userId = req?.params?.id;
     const features = new ApiFeatures(User, req?.query, req?.role)
-        .addManualFilters(req.role === "admin" ? {} : {_id: userId})
         .filter()
         .sort()
         .limitFields()
