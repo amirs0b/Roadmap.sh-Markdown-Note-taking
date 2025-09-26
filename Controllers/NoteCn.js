@@ -117,3 +117,27 @@ export const deleteNote = catchAsync(async (req, res, next) => {
         data: null
     });
 });
+export const renderNoteAsHtml = catchAsync(async (req, res, next) => {
+    const noteId = req.params.id;
+    const userId = req.userId;
+    const userRole = req.role;
+
+    const note = await Note.findById(noteId);
+
+    if (!note) {
+        return next(new HandleERROR("No note found with that ID", 404));
+    }
+
+    if (userRole !== 'admin' && note.user.toString() !== userId) {
+        return next(new HandleERROR("You do not have permission to view this note", 403));
+    }
+
+    const htmlContent = marked(note.content);
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            html: htmlContent
+        }
+    });
+});

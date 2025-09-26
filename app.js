@@ -8,6 +8,7 @@ import authRouter from "./Routes/Auth.js";
 import exportValidation from "./Middlewares/ExportValidation.js";
 import userRouter from "./Routes/User.js";
 import noteRouter from "./Routes/Note.js";
+import uploadRouter from "./Routes/Upload.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,6 +26,7 @@ app.use(exportValidation)
 
 app.use('/api/users', userRouter)
 app.use('/api/notes', noteRouter);
+app.use('/api/upload', uploadRouter)
 
 
 
