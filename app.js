@@ -10,6 +10,8 @@ import userRouter from "./Routes/User.js";
 import noteRouter from "./Routes/Note.js";
 import uploadRouter from "./Routes/Upload.js";
 import grammarRouter from "./Routes/Grammar.js";
+import swaggerUi from 'swagger-ui-express';
+import { swaggerDocument } from './Utils/Swagger.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +22,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/auth', authRouter)
 app.use(exportValidation)
