@@ -1,6 +1,6 @@
 import ApiFeatures, {catchAsync, HandleERROR} from "vanta-api";
 import Note from "../Models/NoteMd.js";
-import User from "../Models/UserMd.js";
+import { marked } from 'marked';
 
 export const createNote = catchAsync(async (req, res, next) => {
     const {title, content, tags} = req.body
