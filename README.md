@@ -2,7 +2,7 @@
 
 A powerful backend service for a note-taking application, built with Node.js, Express, and MongoDB. This API allows users to manage markdown notes with features like AI-powered grammar checking, HTML rendering, and file uploads.
 
-This project was built based on the **[Backend Project Ideas from roadmap.sh](https://roadmap.sh/backend/project-ideas)**.
+This project was built based on the **[Backend Project Ideas from roadmap.sh](https://roadmap.sh/projects/markdown-note-taking-app)**.
 
 ---
 
